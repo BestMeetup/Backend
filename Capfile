@@ -33,6 +33,7 @@ require "capistrano/rvm"
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 # require "capistrano/passenger"
+require 'capistrano/rake'
 
 require 'capistrano/puma'
 install_plugin Capistrano::Puma  # Default puma tasks

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capistrano-rails', group: :development
 gem 'capistrano-rvm', group: :development
 gem 'capistrano3-puma', group: :development
+gem 'capistrano-rake', group: :development
 
 gem 'pg'
 gem 'rails_admin'
