@@ -1,7 +1,8 @@
 RailsAdmin.config do |config|
 
   ### Popular gems integration
-
+  config.main_app_name = ["AllMeetup", ""]
+  
   ## == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :admin
