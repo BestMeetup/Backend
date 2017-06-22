@@ -1,0 +1,155 @@
+swagger: '2.0'
+info:
+  description: This is a Swagger BestMeetup server.
+  version: 1.0.0
+  title: Swagger BestMeetup
+host: localhost:3000
+basePath: /api
+schemes:
+  - http
+
+paths:
+  /auth/sign_in:
+    post:
+      tags:
+        - Usuario
+      summary: Login
+      description: login
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: email
+          in: query
+          description: E-mail de login
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: Senha
+          required: true
+          type: string
+      responses:
+        200:
+          description: Sucesso
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: success
+              data:
+                $ref: '#/definitions/User'
+          headers:
+            access-token:
+              type: string
+              description: AccessToken using to other requests
+            client:
+              type: string
+              description: Client using to other requests
+            uid:
+              type: string
+              description: Uid using to other requests
+        401:
+          description: "Invalid username/password supplied"
+  /auth/validate_token:
+    get:
+      tags:
+        - Usuario
+      summary: Validate Token
+      description: Validate Token
+      security:
+        - api_key: []
+        - api_client: []
+        - api_uid: []
+      responses:
+        200:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: success
+              data:
+                $ref: '#/definitions/User'
+          description: OK
+  
+  /token/register:
+    get:
+      tags:
+        - Token
+      summary: Register Token of User
+      description: Register Token of User
+      security:
+        - api_key: []
+        - api_client: []
+        - api_uid: []
+      parameters:
+        - name: instance_id
+          in: query
+          description: description
+          type: string
+        - name: token
+          in: query
+          description: description
+          type: string
+              
+      responses:
+        200:
+          description: OK
+  
+  /token/unregister:
+    get:
+      tags:
+        - Token
+      summary: Unregister Token of User
+      description: Unregister Token of User
+      security:
+        - api_key: []
+        - api_client: []
+        - api_uid: []
+      parameters:
+        - name: instance_id
+          in: query
+          description: description
+          type: string
+        - name: token
+          in: query
+          description: description
+          type: string
+              
+      responses:
+        200:
+          description: OK
+       
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: access-token
+    in: header
+  api_client:
+    type: apiKey
+    in: header
+    name: client
+  api_uid:
+    type: apiKey
+    in: header
+    name: uid
+    
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      email:
+        type: string
+        example: email@exemple.com.br
+      password:
+        type: string
+        example: 123456
+      password_confirmation:
+        type: string
+        example: 123456
