@@ -3,7 +3,7 @@ info:
   description: This is a Swagger BestMeetup server.
   version: 1.0.0
   title: Swagger BestMeetup
-host: localhost:3000
+host: api.bestmeetup.com.br/v1
 basePath: /api
 schemes:
   - http
