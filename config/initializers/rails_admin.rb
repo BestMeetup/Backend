@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
 
   ### Popular gems integration
-  config.main_app_name = ["AllMeetup", ""]
+  config.main_app_name = ["BestMeetup", ""]
   
   ## == Devise ==
   config.authenticate_with do
