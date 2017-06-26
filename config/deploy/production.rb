@@ -7,7 +7,7 @@ server "bestmeetup.com.br", user: "root", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-set :nginx_server_name, "localhost bestmeetup.com.br www.bestmeetup.com.br"
+set :nginx_server_name, "localhost bestmeetup.com.br www.bestmeetup.com.br api.bestmeetup.com.br"
 
 # role-based syntax
 # ==================
