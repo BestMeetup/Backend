@@ -35,7 +35,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: "#/definitions/inline_response_200"
+            $ref: "#/definitions/DeviseResponseUser"
           headers:
             access-token:
               type: "string"
@@ -149,10 +149,3 @@ definitions:
       password_confirmation:
         type: "string"
         example: "123456"
-  inline_response_200:
-    properties:
-      status:
-        type: "string"
-        example: "success"
-      data:
-        $ref: "#/definitions/User"
