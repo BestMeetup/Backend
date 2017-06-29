@@ -10,6 +10,26 @@ schemes:
 - "http"
 - "https"
 paths:
+  /auth:
+    post:
+      tags:
+      - "Usuario"
+      summary: "Register User"
+      description: "Register User"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user"
+        description: "user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: "OK"
   /auth/sign_in:
     post:
       tags:
@@ -126,6 +146,13 @@ securityDefinitions:
     name: "uid"
     in: "header"
 definitions:
+  DeviseResponseError:
+    properties:
+      errors:
+        type: "array"
+        items:
+          type: "string"
+          example: "Invalid login credentials. Please try again."
   DeviseResponseUser:
     type: "object"
     properties:
@@ -140,9 +167,15 @@ definitions:
       id:
         type: "integer"
         example: 1
+      name:
+        type: "string"
+        example: "Lorem Name"
       email:
         type: "string"
         example: "email@exemple.com.br"
+      nickname:
+        type: "string"
+        example: "Lorem"
       password:
         type: "string"
         example: "123456"
