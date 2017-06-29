@@ -73,10 +73,6 @@ public class JsonUtil {
       return new TypeToken<List<DeviseResponseUser>>(){}.getType();
     }
     
-    if ("InlineResponse200".equalsIgnoreCase(className)) {
-      return new TypeToken<List<InlineResponse200>>(){}.getType();
-    }
-    
     if ("User".equalsIgnoreCase(className)) {
       return new TypeToken<List<User>>(){}.getType();
     }
@@ -89,10 +85,6 @@ public class JsonUtil {
     
     if ("DeviseResponseUser".equalsIgnoreCase(className)) {
       return new TypeToken<DeviseResponseUser>(){}.getType();
-    }
-    
-    if ("InlineResponse200".equalsIgnoreCase(className)) {
-      return new TypeToken<InlineResponse200>(){}.getType();
     }
     
     if ("User".equalsIgnoreCase(className)) {

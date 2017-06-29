@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="authSignInPost"></a>
 # **authSignInPost**
-> InlineResponse200 authSignInPost(email, password)
+> DeviseResponseUser authSignInPost(email, password)
 
 Login
 
@@ -25,7 +25,7 @@ UsuarioApi apiInstance = new UsuarioApi();
 String email = "email_example"; // String | E-mail de login
 String password = "password_example"; // String | Senha
 try {
-    InlineResponse200 result = apiInstance.authSignInPost(email, password);
+    DeviseResponseUser result = apiInstance.authSignInPost(email, password);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsuarioApi#authSignInPost");
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**DeviseResponseUser**](DeviseResponseUser.md)
 
 ### Authorization
 

@@ -36,7 +36,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import io.swagger.client.model.DeviseResponseUser;
-import io.swagger.client.model.InlineResponse200;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -73,9 +72,9 @@ public class UsuarioApi {
   * login
    * @param email E-mail de login
    * @param password Senha
-   * @return InlineResponse200
+   * @return DeviseResponseUser
   */
-  public InlineResponse200 authSignInPost (String email, String password) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DeviseResponseUser authSignInPost (String email, String password) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
      Object postBody = null;
   
       // verify the required parameter 'email' is set
@@ -126,7 +125,7 @@ public class UsuarioApi {
       try {
         String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
         if(localVarResponse != null){
-           return (InlineResponse200) ApiInvoker.deserialize(localVarResponse, "", InlineResponse200.class);
+           return (DeviseResponseUser) ApiInvoker.deserialize(localVarResponse, "", DeviseResponseUser.class);
         } else {
            return null;
         }
@@ -152,7 +151,7 @@ public class UsuarioApi {
    * login
    * @param email E-mail de login   * @param password Senha
   */
-  public void authSignInPost (String email, String password, final Response.Listener<InlineResponse200> responseListener, final Response.ErrorListener errorListener) {
+  public void authSignInPost (String email, String password, final Response.Listener<DeviseResponseUser> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
   
@@ -207,7 +206,7 @@ public class UsuarioApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((InlineResponse200) ApiInvoker.deserialize(localVarResponse,  "", InlineResponse200.class));
+              responseListener.onResponse((DeviseResponseUser) ApiInvoker.deserialize(localVarResponse,  "", DeviseResponseUser.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

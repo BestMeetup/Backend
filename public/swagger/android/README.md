@@ -92,7 +92,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [DeviseResponseUser](docs/DeviseResponseUser.md)
- - [InlineResponse200](docs/InlineResponse200.md)
  - [User](docs/User.md)
 
 
