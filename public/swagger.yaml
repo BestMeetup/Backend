@@ -67,7 +67,9 @@ paths:
               type: "string"
               description: "Uid using to other requests"
         401:
-          description: "Invalid username/password supplied"
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/DeviseResponseError"
   /auth/validate_token:
     get:
       tags:
