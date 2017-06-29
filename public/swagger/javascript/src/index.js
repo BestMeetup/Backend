@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DeviseResponseUser', 'model/User', 'api/TokenApi', 'api/UsuarioApi'], factory);
+    define(['ApiClient', 'model/DeviseResponseError', 'model/DeviseResponseUser', 'model/User', 'api/TokenApi', 'api/UsuarioApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/DeviseResponseUser'), require('./model/User'), require('./api/TokenApi'), require('./api/UsuarioApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/DeviseResponseError'), require('./model/DeviseResponseUser'), require('./model/User'), require('./api/TokenApi'), require('./api/UsuarioApi'));
   }
-}(function(ApiClient, DeviseResponseUser, User, TokenApi, UsuarioApi) {
+}(function(ApiClient, DeviseResponseError, DeviseResponseUser, User, TokenApi, UsuarioApi) {
   'use strict';
 
   /**
@@ -70,6 +70,11 @@
      * @property {module:ApiClient}
      */
     ApiClient: ApiClient,
+    /**
+     * The DeviseResponseError model constructor.
+     * @property {module:model/DeviseResponseError}
+     */
+    DeviseResponseError: DeviseResponseError,
     /**
      * The DeviseResponseUser model constructor.
      * @property {module:model/DeviseResponseUser}

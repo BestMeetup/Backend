@@ -34,7 +34,7 @@
     if (!root.SwaggerBestMeetup) {
       root.SwaggerBestMeetup = {};
     }
-    root.SwaggerBestMeetup.User = factory(root.SwaggerBestMeetup.ApiClient);
+    root.SwaggerBestMeetup.DeviseResponseError = factory(root.SwaggerBestMeetup.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,84 +43,44 @@
 
 
   /**
-   * The User model module.
-   * @module model/User
+   * The DeviseResponseError model module.
+   * @module model/DeviseResponseError
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>User</code>.
-   * @alias module:model/User
+   * Constructs a new <code>DeviseResponseError</code>.
+   * @alias module:model/DeviseResponseError
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
-
-
   };
 
   /**
-   * Constructs a <code>User</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DeviseResponseError</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/User} obj Optional instance to populate.
-   * @return {module:model/User} The populated <code>User</code> instance.
+   * @param {module:model/DeviseResponseError} obj Optional instance to populate.
+   * @return {module:model/DeviseResponseError} The populated <code>DeviseResponseError</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('email')) {
-        obj['email'] = ApiClient.convertToType(data['email'], 'String');
-      }
-      if (data.hasOwnProperty('nickname')) {
-        obj['nickname'] = ApiClient.convertToType(data['nickname'], 'String');
-      }
-      if (data.hasOwnProperty('password')) {
-        obj['password'] = ApiClient.convertToType(data['password'], 'String');
-      }
-      if (data.hasOwnProperty('password_confirmation')) {
-        obj['password_confirmation'] = ApiClient.convertToType(data['password_confirmation'], 'String');
+      if (data.hasOwnProperty('errors')) {
+        obj['errors'] = ApiClient.convertToType(data['errors'], ['String']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Number} id
+   * @member {Array.<String>} errors
    */
-  exports.prototype['id'] = undefined;
-  /**
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} email
-   */
-  exports.prototype['email'] = undefined;
-  /**
-   * @member {String} nickname
-   */
-  exports.prototype['nickname'] = undefined;
-  /**
-   * @member {String} password
-   */
-  exports.prototype['password'] = undefined;
-  /**
-   * @member {String} password_confirmation
-   */
-  exports.prototype['password_confirmation'] = undefined;
+  exports.prototype['errors'] = undefined;
 
 
 

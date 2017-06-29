@@ -59,6 +59,16 @@
   }
 
   describe('UsuarioApi', function() {
+    describe('authPost', function() {
+      it('should call authPost successfully', function(done) {
+        //uncomment below and update the code to test authPost
+        //instance.authPost(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('authSignInPost', function() {
       it('should call authSignInPost successfully', function(done) {
         //uncomment below and update the code to test authSignInPost

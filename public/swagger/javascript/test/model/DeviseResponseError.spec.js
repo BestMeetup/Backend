@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new SwaggerBestMeetup.User();
+    instance = new SwaggerBestMeetup.DeviseResponseError();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,46 +58,16 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be.a(SwaggerBestMeetup.User);
+  describe('DeviseResponseError', function() {
+    it('should create an instance of DeviseResponseError', function() {
+      // uncomment below and update the code to test DeviseResponseError
+      //var instane = new SwaggerBestMeetup.DeviseResponseError();
+      //expect(instance).to.be.a(SwaggerBestMeetup.DeviseResponseError);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property email (base name: "email")', function() {
-      // uncomment below and update the code to test the property email
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property nickname (base name: "nickname")', function() {
-      // uncomment below and update the code to test the property nickname
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property password (base name: "password")', function() {
-      // uncomment below and update the code to test the property password
-      //var instane = new SwaggerBestMeetup.User();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property passwordConfirmation (base name: "password_confirmation")', function() {
-      // uncomment below and update the code to test the property passwordConfirmation
-      //var instane = new SwaggerBestMeetup.User();
+    it('should have the property errors (base name: "errors")', function() {
+      // uncomment below and update the code to test the property errors
+      //var instane = new SwaggerBestMeetup.DeviseResponseError();
       //expect(instance).to.be();
     });
 

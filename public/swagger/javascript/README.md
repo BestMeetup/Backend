@@ -98,12 +98,14 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SwaggerBestMeetup.TokenApi* | [**tokenRegisterGet**](docs/TokenApi.md#tokenRegisterGet) | **GET** /token/register | Register Token of User
 *SwaggerBestMeetup.TokenApi* | [**tokenUnregisterGet**](docs/TokenApi.md#tokenUnregisterGet) | **GET** /token/unregister | Unregister Token of User
+*SwaggerBestMeetup.UsuarioApi* | [**authPost**](docs/UsuarioApi.md#authPost) | **POST** /auth | Register User
 *SwaggerBestMeetup.UsuarioApi* | [**authSignInPost**](docs/UsuarioApi.md#authSignInPost) | **POST** /auth/sign_in | Login
 *SwaggerBestMeetup.UsuarioApi* | [**authValidateTokenGet**](docs/UsuarioApi.md#authValidateTokenGet) | **GET** /auth/validate_token | Validate Token
 
 
 ## Documentation for Models
 
+ - [SwaggerBestMeetup.DeviseResponseError](docs/DeviseResponseError.md)
  - [SwaggerBestMeetup.DeviseResponseUser](docs/DeviseResponseUser.md)
  - [SwaggerBestMeetup.User](docs/User.md)
 

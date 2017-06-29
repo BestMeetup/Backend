@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DeviseResponseUser'], factory);
+    define(['ApiClient', 'model/DeviseResponseUser', 'model/User'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DeviseResponseUser'));
+    module.exports = factory(require('../ApiClient'), require('../model/DeviseResponseUser'), require('../model/User'));
   } else {
     // Browser globals (root is window)
     if (!root.SwaggerBestMeetup) {
       root.SwaggerBestMeetup = {};
     }
-    root.SwaggerBestMeetup.UsuarioApi = factory(root.SwaggerBestMeetup.ApiClient, root.SwaggerBestMeetup.DeviseResponseUser);
+    root.SwaggerBestMeetup.UsuarioApi = factory(root.SwaggerBestMeetup.ApiClient, root.SwaggerBestMeetup.DeviseResponseUser, root.SwaggerBestMeetup.User);
   }
-}(this, function(ApiClient, DeviseResponseUser) {
+}(this, function(ApiClient, DeviseResponseUser, User) {
   'use strict';
 
   /**
@@ -55,6 +55,50 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
+
+    /**
+     * Callback function to receive the result of the authPost operation.
+     * @callback module:api/UsuarioApi~authPostCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Register User
+     * Register User
+     * @param {module:model/User} user user object
+     * @param {module:api/UsuarioApi~authPostCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.authPost = function(user, callback) {
+      var postBody = user;
+
+      // verify the required parameter 'user' is set
+      if (user == undefined || user == null) {
+        throw new Error("Missing the required parameter 'user' when calling authPost");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/auth', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the authSignInPost operation.
