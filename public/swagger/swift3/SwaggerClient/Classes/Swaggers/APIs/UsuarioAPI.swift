@@ -11,6 +11,40 @@ import Alamofire
 
 open class UsuarioAPI: APIBase {
     /**
+     Register User
+     
+     - parameter user: (body) user object 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func authPost(user: User, completion: @escaping ((_ error: Error?) -> Void)) {
+        authPostWithRequestBuilder(user: user).execute { (response, error) -> Void in
+            completion(error);
+        }
+    }
+
+
+    /**
+     Register User
+     - POST /auth
+     - Register User
+     
+     - parameter user: (body) user object 
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func authPostWithRequestBuilder(user: User) -> RequestBuilder<Void> {
+        let path = "/auth"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = user.encodeToJSON() as? [String:AnyObject]
+ 
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+ 
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+
+    /**
      Login
      
      - parameter email: (query) E-mail de login 
@@ -35,6 +69,8 @@ open class UsuarioAPI: APIBase {
   "data" : {
     "password" : "123456",
     "password_confirmation" : "123456",
+    "name" : "Lorem Name",
+    "nickname" : "Lorem",
     "id" : 1,
     "email" : "email@exemple.com.br"
   },
@@ -93,6 +129,8 @@ open class UsuarioAPI: APIBase {
   "data" : {
     "password" : "123456",
     "password_confirmation" : "123456",
+    "name" : "Lorem Name",
+    "nickname" : "Lorem",
     "id" : 1,
     "email" : "email@exemple.com.br"
   },

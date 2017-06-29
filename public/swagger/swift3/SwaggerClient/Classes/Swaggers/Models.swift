@@ -148,6 +148,20 @@ class Decoders {
             fatalError("formatter failed to parse \(source)")
         } 
 
+        // Decoder for [DeviseResponseError]
+        Decoders.addDecoder(clazz: [DeviseResponseError].self) { (source: AnyObject) -> [DeviseResponseError] in
+            return Decoders.decode(clazz: [DeviseResponseError].self, source: source)
+        }
+        // Decoder for DeviseResponseError
+        Decoders.addDecoder(clazz: DeviseResponseError.self) { (source: AnyObject) -> DeviseResponseError in
+            let sourceDictionary = source as! [AnyHashable: Any]
+
+            let instance = DeviseResponseError()
+            instance.errors = Decoders.decodeOptional(clazz: Array.self, source: sourceDictionary["errors"] as AnyObject?)
+            return instance
+        }
+
+
         // Decoder for [DeviseResponseUser]
         Decoders.addDecoder(clazz: [DeviseResponseUser].self) { (source: AnyObject) -> [DeviseResponseUser] in
             return Decoders.decode(clazz: [DeviseResponseUser].self, source: source)
@@ -173,7 +187,9 @@ class Decoders {
 
             let instance = User()
             instance.id = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["id"] as AnyObject?)
+            instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"] as AnyObject?)
             instance.email = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["email"] as AnyObject?)
+            instance.nickname = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["nickname"] as AnyObject?)
             instance.password = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["password"] as AnyObject?)
             instance.passwordConfirmation = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["password_confirmation"] as AnyObject?)
             return instance
