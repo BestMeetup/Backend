@@ -36,6 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import io.swagger.client.model.DeviseResponseUser;
+import io.swagger.client.model.User;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -67,6 +68,139 @@ public class UsuarioApi {
     return basePath;
   }
 
+  /**
+  * Register User
+  * Register User
+   * @param user user object
+   * @return void
+  */
+  public void authPost (User user) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+     Object postBody = user;
+  
+      // verify the required parameter 'user' is set
+      if (user == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'user' when calling authPost",
+      new ApiException(400, "Missing the required parameter 'user' when calling authPost"));
+      }
+  
+
+  // create path and map variables
+  String path = "/auth".replaceAll("\\{format\\}","json");
+
+  // query params
+  List<Pair> queryParams = new ArrayList<Pair>();
+      // header params
+      Map<String, String> headerParams = new HashMap<String, String>();
+      // form params
+      Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+      String[] contentTypes = {
+  "application/json"
+      };
+      String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+      if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+  
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+      } else {
+      // normal form params
+        }
+
+      String[] authNames = new String[] {  };
+
+      try {
+        String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+        if(localVarResponse != null){
+           return ;
+        } else {
+           return ;
+        }
+      } catch (ApiException ex) {
+         throw ex;
+      } catch (InterruptedException ex) {
+         throw ex;
+      } catch (ExecutionException ex) {
+         if(ex.getCause() instanceof VolleyError) {
+	    VolleyError volleyError = (VolleyError)ex.getCause();
+	    if (volleyError.networkResponse != null) {
+	       throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+	    }
+         }
+         throw ex;
+      } catch (TimeoutException ex) {
+         throw ex;
+      }
+  }
+
+      /**
+   * Register User
+   * Register User
+   * @param user user object
+  */
+  public void authPost (User user, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = user;
+
+  
+    // verify the required parameter 'user' is set
+    if (user == null) {
+       VolleyError error = new VolleyError("Missing the required parameter 'user' when calling authPost",
+         new ApiException(400, "Missing the required parameter 'user' when calling authPost"));
+    }
+    
+
+    // create path and map variables
+    String path = "/auth".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+      String[] authNames = new String[] {  };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
   /**
   * Login
   * login

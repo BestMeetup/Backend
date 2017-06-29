@@ -69,6 +69,10 @@ public class JsonUtil {
   public static Type getListTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
     
+    if ("DeviseResponseError".equalsIgnoreCase(className)) {
+      return new TypeToken<List<DeviseResponseError>>(){}.getType();
+    }
+    
     if ("DeviseResponseUser".equalsIgnoreCase(className)) {
       return new TypeToken<List<DeviseResponseUser>>(){}.getType();
     }
@@ -82,6 +86,10 @@ public class JsonUtil {
 
   public static Type getTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
+    
+    if ("DeviseResponseError".equalsIgnoreCase(className)) {
+      return new TypeToken<DeviseResponseError>(){}.getType();
+    }
     
     if ("DeviseResponseUser".equalsIgnoreCase(className)) {
       return new TypeToken<DeviseResponseUser>(){}.getType();

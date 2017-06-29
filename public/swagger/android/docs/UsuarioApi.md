@@ -4,9 +4,52 @@ All URIs are relative to *http://api.bestmeetup.com.br/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**authPost**](UsuarioApi.md#authPost) | **POST** /auth | Register User
 [**authSignInPost**](UsuarioApi.md#authSignInPost) | **POST** /auth/sign_in | Login
 [**authValidateTokenGet**](UsuarioApi.md#authValidateTokenGet) | **GET** /auth/validate_token | Validate Token
 
+
+<a name="authPost"></a>
+# **authPost**
+> authPost(user)
+
+Register User
+
+Register User
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.api.UsuarioApi;
+
+UsuarioApi apiInstance = new UsuarioApi();
+User user = new User(); // User | user object
+try {
+    apiInstance.authPost(user);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UsuarioApi#authPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | [**User**](User.md)| user object |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="authSignInPost"></a>
 # **authSignInPost**

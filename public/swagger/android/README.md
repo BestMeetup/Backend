@@ -85,12 +85,14 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *TokenApi* | [**tokenRegisterGet**](docs/TokenApi.md#tokenRegisterGet) | **GET** /token/register | Register Token of User
 *TokenApi* | [**tokenUnregisterGet**](docs/TokenApi.md#tokenUnregisterGet) | **GET** /token/unregister | Unregister Token of User
+*UsuarioApi* | [**authPost**](docs/UsuarioApi.md#authPost) | **POST** /auth | Register User
 *UsuarioApi* | [**authSignInPost**](docs/UsuarioApi.md#authSignInPost) | **POST** /auth/sign_in | Login
 *UsuarioApi* | [**authValidateTokenGet**](docs/UsuarioApi.md#authValidateTokenGet) | **GET** /auth/validate_token | Validate Token
 
 
 ## Documentation for Models
 
+ - [DeviseResponseError](docs/DeviseResponseError.md)
  - [DeviseResponseUser](docs/DeviseResponseUser.md)
  - [User](docs/User.md)
 

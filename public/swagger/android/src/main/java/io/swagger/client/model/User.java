@@ -32,8 +32,12 @@ public class User {
   
   @SerializedName("id")
   private Integer id = null;
+  @SerializedName("name")
+  private String name = null;
   @SerializedName("email")
   private String email = null;
+  @SerializedName("nickname")
+  private String nickname = null;
   @SerializedName("password")
   private String password = null;
   @SerializedName("password_confirmation")
@@ -52,11 +56,31 @@ public class User {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getEmail() {
     return email;
   }
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getNickname() {
+    return nickname;
+  }
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
   }
 
   /**
@@ -90,7 +114,9 @@ public class User {
     }
     User user = (User) o;
     return (this.id == null ? user.id == null : this.id.equals(user.id)) &&
+        (this.name == null ? user.name == null : this.name.equals(user.name)) &&
         (this.email == null ? user.email == null : this.email.equals(user.email)) &&
+        (this.nickname == null ? user.nickname == null : this.nickname.equals(user.nickname)) &&
         (this.password == null ? user.password == null : this.password.equals(user.password)) &&
         (this.passwordConfirmation == null ? user.passwordConfirmation == null : this.passwordConfirmation.equals(user.passwordConfirmation));
   }
@@ -99,7 +125,9 @@ public class User {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
+    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.email == null ? 0: this.email.hashCode());
+    result = 31 * result + (this.nickname == null ? 0: this.nickname.hashCode());
     result = 31 * result + (this.password == null ? 0: this.password.hashCode());
     result = 31 * result + (this.passwordConfirmation == null ? 0: this.passwordConfirmation.hashCode());
     return result;
@@ -111,7 +139,9 @@ public class User {
     sb.append("class User {\n");
     
     sb.append("  id: ").append(id).append("\n");
+    sb.append("  name: ").append(name).append("\n");
     sb.append("  email: ").append(email).append("\n");
+    sb.append("  nickname: ").append(nickname).append("\n");
     sb.append("  password: ").append(password).append("\n");
     sb.append("  passwordConfirmation: ").append(passwordConfirmation).append("\n");
     sb.append("}\n");
