@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 gem 'capistrano-rvm', group: :development
-gem 'capistrano3-puma', group: :development
+gem 'capistrano3-puma', group: :development, github: "seuros/capistrano-puma"
 gem 'capistrano-rake', group: :development
 
 gem 'pg'
