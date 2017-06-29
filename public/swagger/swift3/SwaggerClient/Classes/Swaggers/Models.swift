@@ -163,21 +163,6 @@ class Decoders {
         }
 
 
-        // Decoder for [InlineResponse200]
-        Decoders.addDecoder(clazz: [InlineResponse200].self) { (source: AnyObject) -> [InlineResponse200] in
-            return Decoders.decode(clazz: [InlineResponse200].self, source: source)
-        }
-        // Decoder for InlineResponse200
-        Decoders.addDecoder(clazz: InlineResponse200.self) { (source: AnyObject) -> InlineResponse200 in
-            let sourceDictionary = source as! [AnyHashable: Any]
-
-            let instance = InlineResponse200()
-            instance.status = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["status"] as AnyObject?)
-            instance.data = Decoders.decodeOptional(clazz: User.self, source: sourceDictionary["data"] as AnyObject?)
-            return instance
-        }
-
-
         // Decoder for [User]
         Decoders.addDecoder(clazz: [User].self) { (source: AnyObject) -> [User] in
             return Decoders.decode(clazz: [User].self, source: source)

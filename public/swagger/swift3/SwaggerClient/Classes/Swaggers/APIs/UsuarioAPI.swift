@@ -17,7 +17,7 @@ open class UsuarioAPI: APIBase {
      - parameter password: (query) Senha 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func authSignInPost(email: String, password: String, completion: @escaping ((_ data: InlineResponse200?,_ error: Error?) -> Void)) {
+    open class func authSignInPost(email: String, password: String, completion: @escaping ((_ data: DeviseResponseUser?,_ error: Error?) -> Void)) {
         authSignInPostWithRequestBuilder(email: email, password: password).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -44,9 +44,9 @@ open class UsuarioAPI: APIBase {
      - parameter email: (query) E-mail de login 
      - parameter password: (query) Senha 
 
-     - returns: RequestBuilder<InlineResponse200> 
+     - returns: RequestBuilder<DeviseResponseUser> 
      */
-    open class func authSignInPostWithRequestBuilder(email: String, password: String) -> RequestBuilder<InlineResponse200> {
+    open class func authSignInPostWithRequestBuilder(email: String, password: String) -> RequestBuilder<DeviseResponseUser> {
         let path = "/auth/sign_in"
         let URLString = SwaggerClientAPI.basePath + path
 
@@ -59,7 +59,7 @@ open class UsuarioAPI: APIBase {
  
         let convertedParameters = APIHelper.convertBoolToString(parameters)
  
-        let requestBuilder: RequestBuilder<InlineResponse200>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DeviseResponseUser>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
