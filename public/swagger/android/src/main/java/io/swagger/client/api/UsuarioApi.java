@@ -35,6 +35,7 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import io.swagger.client.model.DeviseResponseError;
 import io.swagger.client.model.DeviseResponseUser;
 import io.swagger.client.model.User;
 
