@@ -83,14 +83,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
-  config.middleware.use Rack::Cors do
-    allow do
-      origins '*'
-      resource '*',
-      :headers => :any,
-      :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-      :methods => [:get, :post, :options, :delete, :put]
-    end
-  end
 end
