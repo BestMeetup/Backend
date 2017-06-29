@@ -1,155 +1,158 @@
-swagger: '2.0'
+---
+swagger: "2.0"
 info:
-  description: This is a Swagger BestMeetup server.
-  version: 1.0.0
-  title: Swagger BestMeetup
-host: api.bestmeetup.com.br
-basePath: /v1
+  description: "This is a Swagger BestMeetup server."
+  version: "1.0.0"
+  title: "Swagger BestMeetup"
+host: "api.bestmeetup.com.br"
+basePath: "/v1"
 schemes:
-  - http
-
+- "http"
+- "https"
 paths:
   /auth/sign_in:
     post:
       tags:
-        - Usuario
-      summary: Login
-      description: login
+      - "Usuario"
+      summary: "Login"
+      description: "login"
       consumes:
-        - application/json
+      - "application/json"
       produces:
-        - application/json
+      - "application/json"
       parameters:
-        - name: email
-          in: query
-          description: E-mail de login
-          required: true
-          type: string
-        - name: password
-          in: query
-          description: Senha
-          required: true
-          type: string
+      - name: "email"
+        in: "query"
+        description: "E-mail de login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "Senha"
+        required: true
+        type: "string"
       responses:
         200:
-          description: Sucesso
+          description: "Sucesso"
           schema:
-            type: object
-            properties:
-              status:
-                type: string
-                example: success
-              data:
-                $ref: '#/definitions/User'
+            $ref: "#/definitions/inline_response_200"
           headers:
             access-token:
-              type: string
-              description: AccessToken using to other requests
+              type: "string"
+              description: "AccessToken using to other requests"
             client:
-              type: string
-              description: Client using to other requests
+              type: "string"
+              description: "Client using to other requests"
             uid:
-              type: string
-              description: Uid using to other requests
+              type: "string"
+              description: "Uid using to other requests"
         401:
           description: "Invalid username/password supplied"
   /auth/validate_token:
     get:
       tags:
-        - Usuario
-      summary: Validate Token
-      description: Validate Token
-      security:
-        - api_key: []
-        - api_client: []
-        - api_uid: []
+      - "Usuario"
+      summary: "Validate Token"
+      description: "Validate Token"
+      parameters: []
       responses:
         200:
+          description: "OK"
           schema:
-            type: object
-            properties:
-              status:
-                type: string
-                example: success
-              data:
-                $ref: '#/definitions/User'
-          description: OK
-  
+            $ref: "#/definitions/DeviseResponseUser"
+      security:
+      - api_key: []
+      - api_client: []
+      - api_uid: []
   /token/register:
     get:
       tags:
-        - Token
-      summary: Register Token of User
-      description: Register Token of User
-      security:
-        - api_key: []
-        - api_client: []
-        - api_uid: []
+      - "Token"
+      summary: "Register Token of User"
+      description: "Register Token of User"
       parameters:
-        - name: instance_id
-          in: query
-          description: description
-          type: string
-        - name: token
-          in: query
-          description: description
-          type: string
-              
+      - name: "instance_id"
+        in: "query"
+        description: "description"
+        required: false
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "description"
+        required: false
+        type: "string"
       responses:
         200:
-          description: OK
-  
+          description: "OK"
+      security:
+      - api_key: []
+      - api_client: []
+      - api_uid: []
   /token/unregister:
     get:
       tags:
-        - Token
-      summary: Unregister Token of User
-      description: Unregister Token of User
-      security:
-        - api_key: []
-        - api_client: []
-        - api_uid: []
+      - "Token"
+      summary: "Unregister Token of User"
+      description: "Unregister Token of User"
       parameters:
-        - name: instance_id
-          in: query
-          description: description
-          type: string
-        - name: token
-          in: query
-          description: description
-          type: string
-              
+      - name: "instance_id"
+        in: "query"
+        description: "description"
+        required: false
+        type: "string"
+      - name: "token"
+        in: "query"
+        description: "description"
+        required: false
+        type: "string"
       responses:
         200:
-          description: OK
-       
+          description: "OK"
+      security:
+      - api_key: []
+      - api_client: []
+      - api_uid: []
 securityDefinitions:
   api_key:
-    type: apiKey
-    name: access-token
-    in: header
+    type: "apiKey"
+    name: "access-token"
+    in: "header"
   api_client:
-    type: apiKey
-    in: header
-    name: client
+    type: "apiKey"
+    name: "client"
+    in: "header"
   api_uid:
-    type: apiKey
-    in: header
-    name: uid
-    
+    type: "apiKey"
+    name: "uid"
+    in: "header"
 definitions:
+  DeviseResponseUser:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+        example: "success"
+      data:
+        $ref: "#/definitions/User"
   User:
-    type: object
+    type: "object"
     properties:
       id:
-        type: integer
+        type: "integer"
         example: 1
       email:
-        type: string
-        example: email@exemple.com.br
+        type: "string"
+        example: "email@exemple.com.br"
       password:
-        type: string
-        example: 123456
+        type: "string"
+        example: "123456"
       password_confirmation:
-        type: string
-        example: 123456
+        type: "string"
+        example: "123456"
+  inline_response_200:
+    properties:
+      status:
+        type: "string"
+        example: "success"
+      data:
+        $ref: "#/definitions/User"
